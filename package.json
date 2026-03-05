@@ -1,0 +1,33 @@
+{
+  "name": "blackroad-agents-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "REST API for 1,000 AI agents — powered by Cloudflare D1. Proprietary BlackRoad OS, Inc.",
+  "main": "worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint worker.js",
+    "typecheck": "tsc --noEmit",
+    "tail": "wrangler tail",
+    "db:list": "wrangler d1 list",
+    "db:execute": "wrangler d1 execute blackroad-continuity"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "wrangler": "3.99.0",
+    "@cloudflare/workers-types": "4.20250303.0",
+    "@cloudflare/vitest-pool-workers": "0.8.19",
+    "vitest": "3.0.7",
+    "eslint": "9.22.0",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "BlackRoad OS, Inc."
+}

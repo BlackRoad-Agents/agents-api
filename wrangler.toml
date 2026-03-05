@@ -1,8 +1,40 @@
+# BlackRoad Agents API — Cloudflare Worker Configuration
+# Proprietary BlackRoad OS, Inc. — All Rights Reserved
+
 name = "blackroad-agents-api"
 main = "worker.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2025-03-01"
+compatibility_flags = ["nodejs_compat"]
 
+# Production routing
+workers_dev = true
+
+# D1 Database binding
 [[d1_databases]]
 binding = "DB"
 database_name = "blackroad-continuity"
 database_id = "f0721506-cb52-41ee-b587-38f7b42b97d9"
+
+# Production environment
+[env.production]
+name = "blackroad-agents-api"
+workers_dev = false
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "blackroad-continuity"
+database_id = "f0721506-cb52-41ee-b587-38f7b42b97d9"
+
+# Staging environment
+[env.staging]
+name = "blackroad-agents-api-staging"
+workers_dev = true
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "blackroad-continuity"
+database_id = "f0721506-cb52-41ee-b587-38f7b42b97d9"
+
+# Observability
+[observability]
+enabled = true
